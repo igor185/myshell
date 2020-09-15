@@ -1,6 +1,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <fstream>
+#include <iostream>
 
 #include <util/util.hpp>
 #include <parse/parse.hpp>
@@ -24,6 +25,10 @@ void util::infinity_loop(const std::string &filename) {
                 file.open(filename);
             }
 
+            if(!file.is_open()){
+                std::cerr << "File is not exists: " << filename << std::endl;
+                return;
+            }
             std::getline(file, s);
             if (s.empty()) {
                 return;

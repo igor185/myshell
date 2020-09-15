@@ -33,7 +33,7 @@ void util::run_program(const string &name, vector<string> &arg_parsed) {
 
         pid_t pid = fork();
 
-        cout << getpid() << " " << pid << endl;
+//        cout << getpid() << " " << pid << endl;
 
         if (pid == -1) {
             cerr << "Failed to fork()" << endl;

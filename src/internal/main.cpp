@@ -14,9 +14,11 @@ int run(const std::string &name, std::vector<std::string> &args) {
 //        mexport(args);
     }else if(name == "mcd"){
         return mcd(args);
-    }else if(name == "merrno"){
+    }else if(name == "merrno") {
         return merrno(args);
-
+    }else if(name == "."){
+        util::infinity_loop(args[0]); // TODO check args[0], check if it .msh, add exit status
+        return 0;
     } else {
         return -1;
     }
