@@ -1,0 +1,3 @@
+./test.sh "it works !"
+mecho it works !
+/bin/ls -l
