@@ -1,6 +1,5 @@
 #include <string>
 
-
 #include <util/util.hpp>
 
 using namespace std;

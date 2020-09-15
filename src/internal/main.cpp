@@ -1,6 +1,5 @@
 #include <internal/internal.hpp>
 #include <util/util.hpp>
-#include <iostream>
 using namespace internal;
 
 int run(const std::string &name, std::vector<std::string> &args) {
