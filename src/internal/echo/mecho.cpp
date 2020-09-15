@@ -7,7 +7,7 @@ int internal::mecho(std::vector<std::string> &args) {
     for(size_t i = 0; i + 1 < args.size(); i++){
         std::cout << args[i] << " ";
     }
-    if(args.size() >= 1)
+    if(!args.empty())
         std::cout << args[args.size() - 1];
     std::cout << std::endl;
 
