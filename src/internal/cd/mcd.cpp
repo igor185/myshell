@@ -1,10 +1,11 @@
 #include <unistd.h>
 #include <string>
-#include "internal/internal.hpp"
-#include "util/util.hpp"
-
-#include <iostream>
 #include <cstring>
+
+#include <internal/internal.hpp>
+#include <util/util.h>
+#include <IO/IO.h>
+
 
 using namespace std;
 
@@ -22,16 +23,16 @@ int internal::mcd(std::vector<std::string> &args) {
     if(status){
         switch (errno) {
             case ENOENT:
-                cerr << "No such directory: " << args[0] << endl;
+                IO::err("No such directory: " + args[0]);
                 return ENOFILEORDIR;
             case ENOTDIR:
-                cerr << "Not a directory: " << args[0] << endl;
+                IO::err("Not a directory: " + args[0]);
                 return ENOTADIR;
             case EACCES:
-                cerr << "You don't have access to: " << args[0] << endl;
+                IO::err("You don't have access to: " + args[0]);
                 return ENOACESS;
             default:
-                cerr << strerror(errno) << endl;
+                IO::err(strerror(errno));
                 return ENKNOWN;
         }
     }

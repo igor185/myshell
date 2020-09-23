@@ -23,7 +23,7 @@ The rest prerequisites (such as development libraries) can be found in the [pack
    ```
 3. Build. // TODO build external programs (mycat and other)
     ```bash
-    cmake -G"Unix Makefiles" -Bbuild
+    cmake -G "Unix Makefiles" -Bbuild
     cmake --build build
     ```
 

@@ -1,41 +1,49 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <fstream>
-#include <iostream>
 
-#include <util/util.hpp>
+#include <util/util.h>
 #include <parse/parse.hpp>
+#include <IO/IO.h>
 
-void util::infinity_loop(const std::string &filename) {
-    bool from_file = !filename.empty();
-    std::ifstream file;
-    std::string s;
+using namespace std;
+
+void util::infinity_loop(const string &filename) {
+
+    ifstream file;
+    string line;
     parse::Args args;
 
+    bool from_file = !filename.empty();
+
     do {
-        s.clear();
+        line.clear();
 
         if (!from_file) {
-            s = readline(util::replace_home(util::pwd()).append("$ ").c_str());
+            // from stdin
+            line = readline(util::get_promt().c_str());
 
-            if (!s.empty())
-                add_history(s.data());
+            if (!line.empty())
+                add_history(line.data());
         } else {
+            // from file
             if (!file.is_open()) {
                 file.open(filename);
+
+                if (!file.is_open()) {
+                    IO::err("File is not exists: " + filename);
+                    return;
+                }
             }
 
-            if(!file.is_open()){
-                std::cerr << "File is not exists: " << filename << std::endl;
-                return;
-            }
-            std::getline(file, s);
-            if (s.empty()) {
+            getline(file, line);
+
+            if (line.empty()) {
                 return;
             }
         }
 
-        args = parse::parse_line(s);
+        args = parse::parse_line(line);
 
         if (!args.s.empty())
             util::run_program(args.s, args.args);

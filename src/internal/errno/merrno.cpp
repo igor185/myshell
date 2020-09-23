@@ -1,7 +1,6 @@
-#include <iostream>
-
 #include <internal/internal.hpp>
-#include <util/util.hpp>
+#include <util/util.h>
+#include <IO/IO.h>
 
 int internal::merrno(std::vector<std::string> &args) {
     bool is_string = false;
@@ -13,25 +12,26 @@ int internal::merrno(std::vector<std::string> &args) {
             is_string = true;
         else {
             errors::set_error(EARG);
-            std::cout << errors::str_error(EARG) << std::endl;
+            IO::err(errors::str_error(EARG));
             return EARG;
         }
     }
     if (is_print_help) {
-        std::cout << "\nUsage: \n"
-                  << "merrno [-h|--help] [-s] print status of previously executed program \n"
-                  << "[-h|--help] print this message"
-                  << "[-s] print string representation of error"
-                  << std::endl;
+        IO::outl("\nUsage: \n merrno "
+                 "[-h|--help] [-s] print status of previously executed program \n"
+                 "[-h|--help] print this message"
+                 "[-s] print string representation of error");
 
         return 0;
     }
 
     int error = errors::get_error();
-    if (is_string)
-        std::cout << errors::str_error(error) << std::endl;
-    else
-        std::cout << error << std::endl;
+    if (is_string) {
+        IO::err(errors::str_error(error));
+    } else {
+        IO::err(error);
+    }
+
 
     return 0;
 }

@@ -24,6 +24,7 @@ add_library(internal SHARED
         src/internal/exit/mexit.cpp
         src/internal/echo/mecho.cpp
         src/internal/cd/mcd.cpp
+        src/internal/export/mexport.cpp
         src/internal/errno/merrno.cpp
             inc/internal/internal.hpp)
 
@@ -32,12 +33,15 @@ add_library(util SHARED src/util/dir.cpp
                         src/util/infinity_loop.cpp
                         src/util/run_program.cpp
                         src/util/env.cpp
-            inc/util/util.hpp)
+        inc/util/util.h)
 
-# const
+# consts
 add_library(errors SHARED src/util/errors/errors.cpp inc/util/errors.h)
 
-target_link_libraries(util parse internal errors)
+#
+add_library(IO SHARED src/util/IO.cpp inc/IO/IO.h)
+
+target_link_libraries(util parse internal errors IO)
 
 
 add_executable(myshell src/main.cpp)

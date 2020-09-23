@@ -1,15 +1,16 @@
 #include <string>
 
-#include <util/util.hpp>
+#include <util/util.h>
 
 using namespace std;
 
 int main(int argc, char **argv) {
+
     env::add_to_path(argv[0]);
 
-    std::string filename;
+    string filename;
 
-    if(argc >= 2){
+    if (argc >= 2) {
         filename = argv[1];
     }
 

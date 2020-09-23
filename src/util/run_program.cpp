@@ -1,10 +1,10 @@
-#include "util/util.hpp"
-#include "iostream"
 #include <unistd.h>
 #include <wait.h>
 #include <cstring>
 
-#include "internal/internal.hpp"
+#include <internal/internal.hpp>
+#include <util/util.h>
+#include <IO/IO.h>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ void execute(const string &name, vector<string> &arg_parsed){
     vector<const char *> args(arg_parsed.size() + 2);
     int i = 0;
     args[i++] = name.c_str();
-    for (auto &arg: arg_parsed)
+    for (const auto &arg: arg_parsed)
         args[i++] = arg.c_str();
 
     args[i++] = nullptr;
@@ -22,7 +22,7 @@ void execute(const string &name, vector<string> &arg_parsed){
 
 
     errors::set_error(ENKNOWN);
-    cout << strerror(errno) << endl;
+    IO::err(strerror(errno));
 
     exit(EXIT_FAILURE);
 }
@@ -33,15 +33,13 @@ void util::run_program(const string &name, vector<string> &arg_parsed) {
 
         pid_t pid = fork();
 
-//        cout << getpid() << " " << pid << endl;
-
         if (pid == -1) {
-            cerr << "Failed to fork()" << endl;
+            IO::err( "Failed to fork()");
             exit(EXIT_FAILURE);
         } else if (pid > 0) {
             int status;
             waitpid(pid, &status, 0);
-            // Add to merrno status for success and error
+            // TODO Add to merrno status for success and error
         } else {
             execute(name, arg_parsed);
         }

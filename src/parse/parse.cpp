@@ -1,10 +1,9 @@
-#include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
 
 #include <parse/parse.hpp>
-#include <util/util.hpp>
+#include <util/util.h>
 
 parse::Args parse::parse_line(std::string& line) {
     Args args = {true, "", {} };
@@ -21,7 +20,6 @@ parse::Args parse::parse_line(std::string& line) {
 
     while (ss >> s && !s.empty()) {
         if(s[0] == '$'){
-            std::cout << s.substr(1) << std::endl;
             s = env::get(s.substr(1));
         }
         arg.push_back(s);
