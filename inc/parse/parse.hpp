@@ -1,5 +1,4 @@
-#ifndef PARSE
-#define PARSE
+#pragma once
 
 #include <string>
 #include <vector>
@@ -13,5 +12,3 @@ namespace parse {
 
     Args parse_line(std::string& s);
 }
-
-#endif

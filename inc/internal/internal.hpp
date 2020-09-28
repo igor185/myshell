@@ -1,5 +1,4 @@
-#ifndef INTERNAL
-#define INTERNAL
+#pragma once
 
 #include <string>
 #include <vector>
@@ -22,5 +21,3 @@ namespace internal {
 
     int mdot(std::vector<std::string>& args);
 }
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef UTIL
-#define UTIL
+#pragma once
 
 #include <string>
 #include <vector>
@@ -34,5 +33,3 @@ namespace env {
 
     void add_to_path(char* path);
 }
-
-#endif

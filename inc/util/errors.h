@@ -1,6 +1,4 @@
-#ifndef ERRORS
-#define ERRORS
-
+#pragma once
 #include <string>
 
 #define ENKNOWN 1
@@ -20,5 +18,3 @@ namespace errors {
 
     int set_inc_args();
 }
-
-#endif

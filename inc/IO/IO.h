@@ -1,5 +1,4 @@
-#ifndef IO
-#define IO
+#pragma once
 
 #include <string>
 
@@ -12,5 +11,3 @@ namespace IO {
 
     void err(int number);
 }
-
-#endif
