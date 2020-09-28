@@ -5,7 +5,7 @@ void print_help(){
     IO::outl("\nUsage: \n mecho [-h|--help] [text|$<var_name>] [text|$<var_name>]  [text|$<var_name>] ... \n"
              "[-h|--help] print this message \n"
              "[text|$<var_name>] - some text or if it start with $ will print from env variables");
-};
+}
 
 int internal::mecho(std::vector<std::string> &args) {
 
