@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void util::infinity_loop(const string &filename) {
+bool util::infinity_loop(const string &filename) {
 
     ifstream file;
     string line;
@@ -32,14 +32,16 @@ void util::infinity_loop(const string &filename) {
 
                 if (!file.is_open()) {
                     IO::err("File is not exists: " + filename);
-                    return;
+                    errors::set_error(ENOFILEORDIR);
+
+                    return false;
                 }
             }
 
             getline(file, line);
 
             if (line.empty()) {
-                return;
+                return true;
             }
         }
 

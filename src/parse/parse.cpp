@@ -1,5 +1,4 @@
 #include <string>
-#include <sstream>
 #include <vector>
 
 #include <parse/parse.hpp>
@@ -19,10 +18,11 @@ parse::Args parse::parse_line(std::string& line) {
     args.s = s;
 
     while (ss >> s && !s.empty()) {
-        if(s[0] == '$'){
-            s = env::get(s.substr(1));
-        }
-        arg.push_back(s);
+
+        util::insert_var(s);
+
+        util::insert_wildcard(s, arg);
+
     }
 
     args.args = arg;

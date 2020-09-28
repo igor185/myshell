@@ -1,3 +1,6 @@
+#ifndef IO
+#define IO
+
 #include <string>
 
 namespace IO {
@@ -9,3 +12,5 @@ namespace IO {
 
     void err(int number);
 }
+
+#endif

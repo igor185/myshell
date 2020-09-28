@@ -36,6 +36,7 @@ build_external(){
     cd ./"$i" && cmake ./ -G "Unix Makefiles" -Bbuild
     cmake --build build
     cp ./build/"$i" "$EXTERNAL_DIR_BACK/../build/external/$i"
+    echo "-- Moved to ../build/external/$i"
     cd ../
   done
   cd "$EXTERNAL_DIR_BACK" || exit 1

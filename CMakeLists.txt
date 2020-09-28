@@ -26,6 +26,7 @@ add_library(internal SHARED
         src/internal/cd/mcd.cpp
         src/internal/export/mexport.cpp
         src/internal/errno/merrno.cpp
+        src/internal/dot/mdot.cpp
             inc/internal/internal.hpp)
 
 # util
@@ -33,6 +34,7 @@ add_library(util SHARED src/util/dir.cpp
                         src/util/infinity_loop.cpp
                         src/util/run_program.cpp
                         src/util/env.cpp
+                        src/util/util.cpp
         inc/util/util.h)
 
 # consts
@@ -49,9 +51,8 @@ add_executable(myshell src/main.cpp)
 target_link_libraries(myshell parse util)
 
 # Add external packages
-find_package(Boost 1.65.1 COMPONENTS filesystem REQUIRED)
-include_directories(${Boost_INCLUDE_DIR})
-target_link_libraries(myshell Boost::filesystem)
+#find_package(Boost 1.65.1 COMPONENTS regex REQUIRED)
+#include_directories(${Boost_INCLUDE_DIR})
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
         ${CMAKE_CURRENT_SOURCE_DIR}/cmake)

@@ -1,3 +1,6 @@
+#ifndef INTERNAL
+#define INTERNAL
+
 #include <string>
 #include <vector>
 
@@ -6,9 +9,18 @@ namespace internal {
 
     // without name
     int mpwd(std::vector<std::string>& args);
+
     int mexit(std::vector<std::string>& args);
+
     int mecho(std::vector<std::string>& args);
+
     int mexport(std::vector<std::string>& args);
+
     int mcd(std::vector<std::string>& args);
+
     int merrno(std::vector<std::string>& args);
+
+    int mdot(std::vector<std::string>& args);
 }
+
+#endif

@@ -2,6 +2,7 @@
 
 #include <util/util.h>
 
+
 using namespace std;
 
 int main(int argc, char **argv) {
@@ -16,5 +17,5 @@ int main(int argc, char **argv) {
 
     util::infinity_loop(filename);
 
-    return EXIT_SUCCESS;
+    exit(EXIT_SUCCESS);
 }

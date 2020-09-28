@@ -1,3 +1,6 @@
+#ifndef PARSE
+#define PARSE
+
 #include <string>
 #include <vector>
 
@@ -10,3 +13,5 @@ namespace parse {
 
     Args parse_line(std::string& s);
 }
+
+#endif

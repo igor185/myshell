@@ -10,15 +10,14 @@ int run(const std::string &name, std::vector<std::string> &args) {
         return mexit(args);
     } else if (name == "mecho") {
         return mecho(args);
-    }else if(name == "mexport"){
+    } else if (name == "mexport") {
         return mexport(args);
     } else if (name == "mcd") {
         return mcd(args);
     } else if (name == "merrno") {
         return merrno(args);
     } else if (name == ".") {
-        util::infinity_loop(args[0]); // TODO check args[0], check if it .msh, add exit status and move this logic
-        return 0;
+        return mdot(args);
     } else {
         return -1;
     }
@@ -28,7 +27,7 @@ bool internal::run_internal_program(const std::string &name, std::vector<std::st
     int status = run(name, args);
 
     if (status != -1) {
-        errors::str_error(status);
+        errors::set_error(status);
         return true;
     }
 
