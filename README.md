@@ -13,11 +13,7 @@ The rest prerequisites (such as development libraries) can be found in the [pack
 
 ## Installing
 
-1. Install required libraries. On Ubuntu:
-   ```bash
-   bash ./scripts/install.sh
-   ```
-2. Build to ./build/myshell. With -r run after build 
+1. Build to ./build/myshell. With -r run after build 
     ```bash
     bash ./scripts/build.sh -r
     ```
