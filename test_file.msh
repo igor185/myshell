@@ -1,4 +1,4 @@
 #!/home/igor/OS/myshell/build/myshell
-./test.sh "it works !"
-mecho it works !
+./test.sh 1 12
+mecho it works
 /bin/ls -l

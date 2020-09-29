@@ -34,6 +34,10 @@ int env::set(const std::string &key, const std::string &value, bool local) {
         }
     }
 
+    if(local_var.find(key) != local_var.end()){
+        local_var.erase(key);
+    }
+
     return 0;
 }
 

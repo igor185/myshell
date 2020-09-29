@@ -11,12 +11,17 @@ int internal::mexport(std::vector<std::string> &args) {
     std::string line = args[0];
 
     size_t index = line.find('=');
+    std::string value = env::get(line);
 
     if (index == std::string::npos) {
+        if(!value.empty()){
+            env::set(line, value, false);
+            return 0;
+        }
         return errors::set_inc_args();
     }
 
-    env::set(line.substr(0, index), line.substr(index + 1), 0);
+    env::set(line.substr(0, index), line.substr(index + 1), false);
 
     return 0;
 }
