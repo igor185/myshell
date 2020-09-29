@@ -6,15 +6,12 @@
 #include <util/util.h>
 #include <IO/IO.h>
 
-
-using namespace std;
-
 int internal::mcd(std::vector<std::string> &args) {
-    string path = args[0];
+    std::string path = args[0];
 
     size_t index = path.find('~');
 
-    while (index != string::npos) {
+    while (index != std::string::npos) {
         path = path.substr(0, index) + util::home_dir() + path.substr(index + 1);
         index = path.find('~');
     }

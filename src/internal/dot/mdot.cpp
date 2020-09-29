@@ -4,8 +4,6 @@
 #include <internal/internal.hpp>
 #include <util/util.h>
 
-using namespace std;
-
 int internal::mdot(std::vector<std::string>& args){
     if(args.empty()){
         return errors::set_inc_args();
@@ -13,7 +11,7 @@ int internal::mdot(std::vector<std::string>& args){
 
     size_t index = args[0].find_last_of('.');
 
-    if(index == string::npos || args[0].substr(index+1) != "msh"){
+    if(index == std::string::npos || args[0].substr(index+1) != "msh"){
         return errors::set_inc_args();
     }
 

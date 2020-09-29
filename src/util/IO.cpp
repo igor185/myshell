@@ -2,20 +2,19 @@
 
 #include <IO/IO.h>
 
-using namespace std;
 
 void IO::out(const std::string &line) {
-    cout << line;
+    std::cout << line;
 }
 
 void IO::outl(const std::string &line) {
-    cout << line << endl;
+    std::cout << line << std::endl;
 }
 
 void IO::err(const std::string &line) {
-    cerr << line << endl;
+    std::cerr << line << std::endl;
 }
 
 void IO::err(int number) {
-    cerr << number << endl;
+    std::cerr << number << std::endl;
 }

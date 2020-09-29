@@ -6,11 +6,8 @@
 #include <util/util.h>
 #include <IO/IO.h>
 
-using namespace std;
-
-
-void execute(const string &name, vector<string> &arg_parsed) {
-    vector<const char *> args(arg_parsed.size() + 2);
+void execute(const std::string &name, std::vector<std::string> &arg_parsed) {
+    std::vector<const char *> args(arg_parsed.size() + 2);
     int i = 0;
     args[i++] = name.c_str();
     for (const auto &arg: arg_parsed)
@@ -27,7 +24,7 @@ void execute(const string &name, vector<string> &arg_parsed) {
     exit(EXIT_FAILURE);
 }
 
-void util::run_program(const string &name, vector<string> &arg_parsed) {
+void util::run_program(const std::string &name, std::vector<std::string> &arg_parsed) {
 
     if (!internal::run_internal_program(name, arg_parsed)) {
 

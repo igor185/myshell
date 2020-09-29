@@ -1,3 +1,5 @@
+#include <string>
+
 #include <internal/internal.hpp>
 #include <util/util.h>
 
@@ -18,6 +20,8 @@ int run(const std::string &name, std::vector<std::string> &args) {
         return merrno(args);
     } else if (name == ".") {
         return mdot(args);
+    } else if (name.find('=') != std::string::npos) {
+        return add_local_var({name});
     } else {
         return -1;
     }

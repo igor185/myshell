@@ -27,6 +27,7 @@ add_library(internal SHARED
         src/internal/export/mexport.cpp
         src/internal/errno/merrno.cpp
         src/internal/dot/mdot.cpp
+        src/internal/add_local_var.cpp
             inc/internal/internal.hpp)
 
 # util

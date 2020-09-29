@@ -20,4 +20,6 @@ namespace internal {
     int merrno(std::vector<std::string>& args);
 
     int mdot(std::vector<std::string>& args);
+
+    int add_local_var(const std::vector<std::string>& args);
 }

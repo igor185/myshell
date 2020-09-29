@@ -14,7 +14,6 @@ parse::Args parse::parse_line(std::string& line) {
     std::string s;
 
     ss >> s;
-
     args.s = s;
 
     while (ss >> s && !s.empty()) {

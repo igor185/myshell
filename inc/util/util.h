@@ -27,9 +27,9 @@ namespace util {
 }
 
 namespace env {
-    const char* get(const std::string& key);
+    std::string get(const std::string& key);
 
-    int set(const std::string& key, const std::string& value);
+    int set(const std::string& key, const std::string& value, bool local);
 
     void add_to_path(char* path);
 }

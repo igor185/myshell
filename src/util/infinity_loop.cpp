@@ -6,12 +6,10 @@
 #include <parse/parse.hpp>
 #include <IO/IO.h>
 
-using namespace std;
+bool util::infinity_loop(const std::string &filename) {
 
-bool util::infinity_loop(const string &filename) {
-
-    ifstream file;
-    string line;
+    std::ifstream file;
+    std::string line;
     parse::Args args;
 
     bool from_file = !filename.empty();
@@ -37,11 +35,14 @@ bool util::infinity_loop(const string &filename) {
                     return false;
                 }
             }
+            if (file.eof()) {
+                return true;
+            }
 
             getline(file, line);
 
-            if (line.empty()) {
-                return true;
+            if(line.empty()){
+                continue;
             }
         }
 
