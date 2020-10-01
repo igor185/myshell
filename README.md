@@ -2,7 +2,7 @@
 
 ## Team
 
- - [Volodymyr Chernetskyi](https://github.com/chernetskyi)
+ - [Igor Babin](https://github.com/igor185)
 
 ## Prerequisites
 
@@ -13,20 +13,14 @@ The rest prerequisites (such as development libraries) can be found in the [pack
 
 ## Installing
 
-1. Clone the project.
+1. Build to ./build/myshell. With -r run after build 
     ```bash
-    git clone git@github.com:chernetskyi/cpp-template.git
+    bash ./scripts/build.sh -r
     ```
-2. Install required libraries. On Ubuntu:
-   ```bash
-   sed 's/\r$//' apt_packages.txt | sed 's/#.*//' | xargs sudo apt-get install -y
-   ```
-3. Build.
-    ```bash
-    cmake -G"Unix Makefiles" -Bbuild
-    cmake --build build
-    ```
+Run tests: 
 
+    ./build/myshell ./scripts/run_tests.msh
+    
 ## Usage
 
 ```bash

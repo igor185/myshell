@@ -1,0 +1,25 @@
+mecho First test
+# ignore this
+
+# test search in path
+ls
+
+# check run absolute path
+/bin/ls
+
+mycat C*Lists.txt
+
+. ./scripts/help/pwd.msh
+
+mcd ../
+mpwd
+
+mcd ./
+mpwd
+
+mecho a b c
+
+mexport ABC=aaa
+mecho $ABC
+
+echo $ABC
