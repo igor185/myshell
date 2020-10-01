@@ -20,13 +20,3 @@ The rest prerequisites (such as development libraries) can be found in the [pack
 Run tests: 
 
     ./build/myshell ./scripts/run_tests.msh
-    
-## Usage
-
-```bash
-add [a] [b]
-```
-
-If less than two numbers provided, zeroes are used instead. If more - an error occurs.
-
-Help flags `-h`/`--help` support is available.
