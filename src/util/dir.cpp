@@ -33,11 +33,12 @@ std::string util::get_promt() {
 
 void util::insert_wildcard(const std::string &line, std::vector<std::string> &args) {
     wordexp_t p;
+    if (wordexp(line.c_str(), &p, 0) == 0) {
+        for (size_t i = 0; i < p.we_wordc; i++)
+            args.emplace_back(p.we_wordv[i]);
+        wordfree(&p);
+    } else {
+        args.push_back(line);
+    }
 
-    wordexp(line.c_str(), &p, 0);
-
-    for (size_t i = 0; i < p.we_wordc; i++)
-        args.emplace_back(p.we_wordv[i]);
-
-    wordfree(&p);
 }

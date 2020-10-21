@@ -14,7 +14,7 @@ std::string env::get(const std::string &key) {
     if (value == nullptr) {
         auto iter = local_var.find(key);
         if (iter != local_var.end()) {
-            return iter->first;
+            return iter->second;
         }
         return "";
     }
