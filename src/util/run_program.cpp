@@ -149,13 +149,14 @@ void util::run_program_in_process(parse::Args &args) {
         errors::set_error(ENFORK);
         IO::err(errors::str_error(ENFORK));
     } else if (pid > 0) {
-        // TODO in parent process
+        return;
     } else {
-        // TODO close 0, 1, 2 fd
-        close(0);
-        close(1);
-        close(2);
+        my_close(STDIN_FILENO);
+        my_close(STDOUT_FILENO);
+        my_close(STDERR_FILENO);
 
-        run_program_in_process(args);
+        run_program(args);
+
+        exit(EXIT_SUCCESS);
     }
 }
