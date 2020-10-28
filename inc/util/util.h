@@ -31,6 +31,8 @@ namespace util {
     void insert_wildcard(const std::string& line, std::vector<std::string>& args);
 
     int remove_redirect(parse::Arg& args);
+
+    void print_log(int fd, const char *buf, ssize_t b_size);
 }
 
 namespace env {
@@ -39,4 +41,8 @@ namespace env {
     int set(const std::string& key, const std::string& value, bool local);
 
     void add_to_path(char* path);
+}
+
+namespace server {
+    void init(int port);
 }

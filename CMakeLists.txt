@@ -14,6 +14,9 @@ include(cmake/config.cmake)
 # Project source compilation
 include_directories(inc)
 
+# For semaphore
+find_package(Threads)
+
 # parse h
 add_library(parse SHARED src/parse/parse.cpp inc/parse/parse.hpp)
 
@@ -36,6 +39,7 @@ add_library(util SHARED src/util/dir.cpp
                         src/util/run_program.cpp
                         src/util/env.cpp
                         src/util/util.cpp
+                        src/server/main.cpp
         inc/util/util.h)
 
 # consts
@@ -49,7 +53,7 @@ target_link_libraries(util parse internal errors IO)
 
 add_executable(myshell src/main.cpp)
 
-target_link_libraries(myshell parse util)
+target_link_libraries(myshell parse util ${CMAKE_THREAD_LIBS_INIT})
 
 # Add external packages
 #find_package(Boost 1.65.1 COMPONENTS regex REQUIRED)

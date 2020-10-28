@@ -1,5 +1,7 @@
-#include <util/util.h>
 #include <fcntl.h>
+#include <unistd.h>
+
+#include <util/util.h>
 #include <IO/IO.h>
 
 bool util::is_integer(const std::string &s) {
@@ -85,4 +87,19 @@ int util::remove_redirect(parse::Arg &args) {
     }
     args.args = tokens;
     return 0;
+}
+
+void util::print_log(int fd, const char *buf, ssize_t b_size) {
+    ssize_t written_bytes = 0;
+    while (written_bytes < b_size) {
+        ssize_t written_now = write(fd, buf + written_bytes, b_size - written_bytes);
+        if (written_now == -1) {
+            if (errno == EINTR)
+                continue;
+            else {
+                return;
+            }
+        } else
+            written_bytes += written_now;
+    }
 }
