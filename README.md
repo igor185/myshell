@@ -1,4 +1,4 @@
-# Lab 2 Option 3: Adder
+# Lab
 
 ## Team
 
@@ -24,7 +24,12 @@ Run tests:
 ## Usage
 
 ```bash
-add [a] [b]
+./build/myshell
+```
+
+Run as server:
+```bash
+./build/myshell --server --port <number>
 ```
 
 If less than two numbers provided, zeroes are used instead. If more - an error occurs.

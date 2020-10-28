@@ -36,6 +36,10 @@ int main(int argc, char **argv) {
     if(!server)
         util::infinity_loop(filename);
     else{
+        if(port < 0){
+            IO::help();
+            exit(EXIT_FAILURE);
+        }
         server::init(port);
     }
 

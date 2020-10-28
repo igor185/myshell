@@ -21,7 +21,7 @@ void IO::err(int number) {
 
 void IO::help() {
     outl("Usage of myshell: \n"
-         "[--server] - listen some port (8888 by default) \n"
+         "[--server] - listen some port \n"
          "[--port number] - specify with port to listen \n"
          "[--help | -h]  print this message \n"
          "[filename] filename to execute from");
