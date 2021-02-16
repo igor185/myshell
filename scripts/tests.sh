@@ -29,6 +29,7 @@ rm temp.txt
 
 MYSHELL="$($PROGRAM $HELP_FOLDER/tests.msh)"
 BASH="$(bash $HELP_FOLDER/tests.sh)"
+echo $MYSHELL
 if [ "$MYSHELL" != "$BASH" ]
 then
   echo $MYSHELL > ms.txt

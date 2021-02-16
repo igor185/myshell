@@ -5,6 +5,8 @@ int error_status = 0;
 
 std::string errors::str_error(int merrno) {
     switch (merrno) {
+        case 0:
+            return "OK";
         case EARG:
             return "Incorrect arguments";
         case ENOFILEORDIR:
@@ -17,6 +19,14 @@ std::string errors::str_error(int merrno) {
             return "Failed to fork()";
         case EMEMORY:
             return "Memory is over";
+        case EINCCOMAND:
+            return "Incorrect command";
+        case EDUP:
+            return "Cannot dup 2";
+        case EWAIT:
+            return "Forked process return error";
+        case ECRPIPE:
+            return "Cannot create pipe";
         case ENKNOWN:
         default:
             return "Unknown error";
@@ -36,4 +46,8 @@ int errors::set_inc_args(){
     IO::err(errors::str_error(EARG));
 
     return EARG;
+}
+
+void errors::reset_error() {
+    error_status = 0;
 }

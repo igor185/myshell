@@ -48,8 +48,12 @@ bool util::infinity_loop(const std::string &filename) {
 
         args = parse::parse_line(line);
 
-        if (!args.s.empty())
-            util::run_program(args.s, args.args);
+        if (!args.args.empty() && !args.args[0].args.empty()) {
+            if(args.in_current_process) {
+                util::run_program(args);
+            } else
+                util::run_program_in_process(args);
+        }
 
 
     } while (true);

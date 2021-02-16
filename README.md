@@ -20,3 +20,18 @@ The rest prerequisites (such as development libraries) can be found in the [pack
 Run tests: 
 
     ./build/myshell ./scripts/run_tests.msh
+    
+## Usage
+
+```bash
+./build/myshell
+```
+
+Run as server:
+```bash
+./build/myshell --server --port <number>
+```
+
+If less than two numbers provided, zeroes are used instead. If more - an error occurs.
+
+Help flags `-h`/`--help` support is available.

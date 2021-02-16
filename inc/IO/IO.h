@@ -10,4 +10,6 @@ namespace IO {
     void err(const std::string& line);
 
     void err(int number);
+
+    void help();
 }
